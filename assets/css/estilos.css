@@ -1,0 +1,93 @@
+/* ====== Estilos generales - Sistema Inteligente de Recolección de Basura ====== */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+body { background: #f4f6f9; color: #111827; }
+
+/* ---- Distribución con barra lateral ---- */
+body.con-menu { display: flex; }
+.sidebar { width: 250px; min-height: 100vh; background: linear-gradient(180deg, #198754, #0b4f31); color: white; padding: 25px 18px; flex-shrink: 0; }
+.sidebar h2 { margin-bottom: 30px; font-size: 24px; line-height: 1.2; }
+.sidebar a { display: block; color: white; text-decoration: none; padding: 12px 15px; margin-bottom: 8px; border-radius: 10px; font-weight: bold; font-size: 15px; }
+.sidebar a:hover, .sidebar a.activo { background: rgba(255, 255, 255, 0.18); }
+.sidebar-usuario { margin-top: 25px; font-size: 13px; opacity: .85; padding: 0 15px; }
+.contenido { flex: 1; padding: 32px; min-width: 0; }
+
+/* ---- Páginas simples (formularios y listados) ---- */
+body.pagina { padding: 35px; }
+.caja { max-width: 760px; margin: auto; background: white; padding: 35px; border-radius: 15px; box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12); }
+.caja.ancha { max-width: none; }
+h1 { color: #198754; margin-bottom: 10px; }
+.subtitulo { color: #555; margin-bottom: 25px; }
+.titulo { margin-bottom: 25px; }
+.titulo h1 { font-size: 32px; color: #111827; }
+.titulo p { color: #4b5563; margin-top: 4px; }
+
+/* ---- Formularios ---- */
+label { font-weight: bold; margin-bottom: 8px; display: block; }
+input, select, textarea { width: 100%; padding: 12px; margin-bottom: 18px; border: 1px solid #ccc; border-radius: 9px; font-size: 15px; background: white; }
+textarea { min-height: 90px; resize: vertical; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: #198754; }
+.fila-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.botones { display: flex; gap: 12px; flex-wrap: wrap; }
+button, .btn { border: none; padding: 12px 22px; border-radius: 9px; font-weight: bold; cursor: pointer; text-decoration: none; font-size: 15px; display: inline-block; color: white; background: #198754; }
+button:hover, .btn:hover { background: #146c43; }
+.btn.gris, .volver { background: #6c757d; color: white; }
+.btn.gris:hover { background: #5c636a; }
+.btn.azul { background: #0d6efd; } .btn.azul:hover { background: #0b5ed7; }
+.btn.rojo { background: #dc3545; } .btn.rojo:hover { background: #bb2d3b; }
+.btn.chico { padding: 8px 12px; font-size: 13px; border-radius: 6px; margin: 2px; }
+.acciones-top { margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+/* ---- Tablas ---- */
+table { width: 100%; border-collapse: collapse; background: white; font-size: 14px; }
+th { background: #198754; color: white; padding: 12px; text-align: center; }
+td { padding: 11px; border-bottom: 1px solid #e5e7eb; text-align: center; }
+tr:hover td { background: #f8f9fa; }
+td.izq, th.izq { text-align: left; }
+.tabla-scroll { overflow-x: auto; border-radius: 12px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08); }
+
+/* ---- Indicadores ---- */
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-bottom: 28px; }
+.card { background: white; padding: 22px; border-radius: 15px; box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10); }
+.card h3 { font-size: 32px; color: #198754; }
+.card p { font-weight: bold; margin-top: 4px; }
+.card span { color: #6b7280; font-size: 14px; }
+.panel { background: white; padding: 22px; border-radius: 15px; box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10); }
+.panel h2 { margin-bottom: 16px; color: #0b4f31; font-size: 20px; }
+.paneles { display: grid; grid-template-columns: 1fr 1.2fr; gap: 22px; }
+.alerta { background: #fff3cd; color: #856404; padding: 14px 18px; border-radius: 12px; margin-bottom: 22px; font-weight: bold; border-left: 6px solid #ffc107; }
+.info { background: #e7f1ff; color: #084298; padding: 13px 16px; border-radius: 10px; margin-bottom: 18px; font-size: 14px; border-left: 5px solid #0d6efd; }
+.exito { background: #d1e7dd; color: #0f5132; padding: 13px 16px; border-radius: 10px; margin-bottom: 18px; font-weight: bold; }
+
+/* ---- Etiquetas ---- */
+.badge { padding: 5px 9px; border-radius: 8px; color: white; font-weight: bold; font-size: 12px; display: inline-block; }
+.verde { background: #198754; } .amarillo { background: #ffb703; } .rojo { background: #dc3545; } .azul { background: #0d6efd; } .gris-b { background: #6c757d; }
+.estado { padding: 5px 10px; border-radius: 20px; font-weight: bold; font-size: 12px; display: inline-block; }
+.Pendiente { background: #fff3cd; color: #856404; }
+.En-proceso { background: #cfe2ff; color: #084298; }
+.Completada, .Atendido, .Atendida { background: #d1e7dd; color: #0f5132; }
+.En-atención { background: #cfe2ff; color: #084298; }
+
+/* ---- Barra de nivel ---- */
+.barra { background: #e9ecef; border-radius: 10px; height: 12px; width: 120px; display: inline-block; vertical-align: middle; overflow: hidden; }
+.barra > div { height: 100%; }
+
+/* ---- Mapas ---- */
+.mapa { width: 100%; height: 430px; border-radius: 12px; background: #eef1ea; }
+.leyenda { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; margin-top: 10px; color: #374151; }
+.leyenda span::before { content: ""; display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; background: var(--c); }
+
+/* ---- Filtros ---- */
+.filtros { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; margin-bottom: 18px; }
+.filtros > div { min-width: 170px; }
+.filtros input, .filtros select { margin-bottom: 0; }
+
+/* ---- Gráficos de barras simples (reportes) ---- */
+.grafico { display: flex; flex-direction: column; gap: 10px; }
+.grafico .fila { display: grid; grid-template-columns: 150px 1fr 60px; align-items: center; gap: 10px; font-size: 14px; }
+.grafico .pista { background: #edf2ef; border-radius: 8px; height: 22px; overflow: hidden; }
+.grafico .valor { height: 100%; background: #198754; border-radius: 8px; }
+
+@media print {
+    .sidebar, .no-imprimir { display: none !important; }
+    body.con-menu { display: block; }
+}

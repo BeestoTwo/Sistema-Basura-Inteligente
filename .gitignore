@@ -1,0 +1,11 @@
+# Configuración local (contiene el token de la API). Copiar config.example.php a config.php
+config.php
+
+# Base de datos MySQL local
+.mysql-local/
+
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
