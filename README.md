@@ -63,3 +63,22 @@ el servicio OSRM; sin conexión se dibuja una ruta aproximada.
 ## Estructura de la base de datos
 `usuarios`, `camiones`, `contenedores`, `rutas`, `detalle_ruta`, `lecturas_sensor`, `alertas`, `reportes_ciudadanos`.
 El diagrama entidad-relación se incluye en el documento del proyecto.
+
+## Despliegue en Render
+Render no tiene PHP nativo ni MySQL gratuito, por eso se usa el `Dockerfile` incluido y una base
+MySQL externa (por ejemplo **Aiven for MySQL**, plan gratuito).
+
+1. Cree la base MySQL en Aiven y ejecute `database/basura_inteligente.sql` (por ejemplo con HeidiSQL,
+   activando SSL).
+2. En Render: **New → Web Service**, conecte este repositorio; Render detecta el `Dockerfile`.
+3. Agregue las variables de entorno:
+
+| Variable | Valor |
+|----------|-------|
+| `DB_HOST` | host de Aiven |
+| `DB_PORT` | puerto de Aiven |
+| `DB_USER` | `avnadmin` |
+| `DB_PASS` | contraseña de Aiven |
+| `DB_NAME` | `basura_inteligente` |
+| `DB_SSL` | `1` |
+| `API_TOKEN` | un token secreto propio |

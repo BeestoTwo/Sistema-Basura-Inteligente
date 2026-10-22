@@ -2,12 +2,14 @@
 /* ============================================================
    CONFIGURACIÓN GENERAL - Sistema Inteligente de Recolección de Basura
    Ajuste estos valores según su instalación (XAMPP / servidor).
+   En un servidor (Render) se leen de las variables de entorno.
    ============================================================ */
-define('DB_HOST', '127.0.0.1');
-define('DB_USER', 'root');
-define('DB_PASS', '');               // En XAMPP la contraseña de root suele estar vacía
-define('DB_NAME', 'basura_inteligente');
-define('DB_PORT', 3307);          // Instancia MySQL local del proyecto (.mysql-local)
+define('DB_HOST', getenv('DB_HOST') ?: '127.0.0.1');
+define('DB_USER', getenv('DB_USER') ?: 'root');
+define('DB_PASS', getenv('DB_PASS') ?: '');               // En XAMPP la contraseña de root suele estar vacía
+define('DB_NAME', getenv('DB_NAME') ?: 'basura_inteligente');
+define('DB_PORT', intval(getenv('DB_PORT') ?: 3307));  // Instancia MySQL local del proyecto (.mysql-local)
+define('DB_SSL', getenv('DB_SSL') === '1');            // Conexión cifrada (necesaria en Aiven / bases en la nube)
 
 define('APP_NOMBRE', 'Sistema Inteligente de Recolección de Basura');
 
@@ -21,7 +23,7 @@ define('UMBRAL_ALTO', 80);   // >= 80 %: prioridad alta / alerta
 define('UMBRAL_MEDIO', 50);  // >= 50 %: prioridad media
 
 // Token que deben enviar los sensores IoT a la API (api/lectura.php)
-define('API_TOKEN', 'CAMBIAR-ESTE-TOKEN');
+define('API_TOKEN', getenv('API_TOKEN') ?: 'CAMBIAR-ESTE-TOKEN');
 
 // Velocidad promedio de los camiones en ruta (km/h) para estimar tiempos
 define('VELOCIDAD_PROMEDIO', 25);
